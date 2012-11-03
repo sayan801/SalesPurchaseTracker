@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{038C92A1-62BE-471A-8D0F-B876BFD4812C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SalesPurchaseTracker</RootNamespace>
+    <AssemblyName>SalesPurchaseTracker</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BillGeneration\SalesBilling.csproj">
+      <Project>{10E30C23-C323-4BC1-AE2F-3AB85DBF8E31}</Project>
+      <Name>SalesBilling</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomerPayments\CustomerPayments.csproj">
+      <Project>{25F8B3D1-F87C-449D-A691-E17637984893}</Project>
+      <Name>CustomerPayments</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\customers\customers.csproj">
+      <Project>{6516F039-AA0C-49CF-A997-E1CCFE70391E}</Project>
+      <Name>customers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OutputVatCalculation\InputVatCalculation.csproj">
+      <Project>{33940ACD-FF54-4A46-8F6D-92A4B0BBDE84}</Project>
+      <Name>InputVatCalculation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PurchaseBilling\PurchaseBilling.csproj">
+      <Project>{49BEFF91-358F-4D03-A53F-7E5EA56BE806}</Project>
+      <Name>PurchaseBilling</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PurchaseReport\PurchaseReport.csproj">
+      <Project>{75E8A210-A481-4AF2-A968-A208768367E1}</Project>
+      <Name>PurchaseReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SalesReportWindow\SalesReport.csproj">
+      <Project>{9C5FE2D0-FA9C-4BAF-82DF-E8E3282D5AC9}</Project>
+      <Name>SalesReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SPTDataModel\SPTDataModel.csproj">
+      <Project>{0FBD9BCF-DE04-4E39-94CC-F6267B7484AB}</Project>
+      <Name>SPTDataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SPTSettings\SPTSettings.csproj">
+      <Project>{55ED97D5-1309-46E6-A1A6-B5237ED40552}</Project>
+      <Name>SPTSettings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SptStyles\SptStyles.csproj">
+      <Project>{55587EA8-5C2F-4285-A565-DF22FF6418EF}</Project>
+      <Name>SptStyles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StockManager\StockManager.csproj">
+      <Project>{7CFCAB13-3778-4D00-BA69-C76ADF444A94}</Project>
+      <Name>StockManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ToDoList\ToDoList.csproj">
+      <Project>{E5E2FA35-3656-4649-A7D5-6B8FB19CD592}</Project>
+      <Name>ToDoList</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VATcalculation\OutputVatCalculation.csproj">
+      <Project>{AE68AB78-4802-4C92-B373-3CAF45F9A040}</Project>
+      <Name>OutputVatCalculation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VendorPayments\VendorPayments.csproj">
+      <Project>{F66C50EC-2A81-4DC9-AE37-1D238793B98C}</Project>
+      <Name>VendorPayments</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\vendors\vendors.csproj">
+      <Project>{9BF70D15-5F67-4040-81CC-0AAE787D5181}</Project>
+      <Name>vendors</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SPTicon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

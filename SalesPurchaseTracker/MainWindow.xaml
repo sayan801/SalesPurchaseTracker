@@ -1,0 +1,41 @@
+﻿<Window x:Class="SalesPurchaseTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sales Purchase Tracker (Standard Edition)" Height="490" Width="600" Icon="/SalesPurchaseTracker;component/Images/SPTicon.ico">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/SptStyles;component/Styles.xaml" />
+                <ResourceDictionary Source="/SptStyles;component/GlassButton.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel LastChildFill="True">
+        <Expander Name="loginExpander" Header="Login" DockPanel.Dock="Top">
+            <UniformGrid Rows="1">
+                <Label>Enter Password</Label>
+                <PasswordBox Name="passwordBox"></PasswordBox>
+                <Button Name="loginBtn" Margin="10 0" Click="loginBtn_Click">Login</Button>
+            </UniformGrid>
+        </Expander>
+        <UniformGrid Name="mainUniformGrid" Columns="2" DockPanel.Dock="Bottom" IsEnabled="False">
+            <Button     Content="Sales Billing"  Name="billingBtn" Margin="10" Click="billingBtn_Click" />
+            <Button    Content="Purchase Billing"  Name="purchaseBillingBtn" Click="purchaseBillingBtn_Click" Margin="10" IsEnabled="True"/>
+            <Button     Content="Sales Report"  Name="salesBtn" Margin="10" IsEnabled="True" Click="salesBtn_Click" />
+            <Button   Content="Purchase Report"  Name="purchaseBtn" Margin="10" IsEnabled="True" Click="purchaseBtn_Click" />
+            <Button Content="Output VAT Register"  Name="opVatCalcBtn" IsEnabled="True" Margin="10" Click="opVatCalcBtn_Click" />
+            <Button Content="Input VAT Register"  Name="ipVatCalcBtn" IsEnabled="True" Margin="10" Click="ipVatCalcBtn_Click" />
+            <Button Content="Customer Payments"  Name="customerPaymentsBtn" IsEnabled="True" Margin="10" Click="customerPayementsBtn_Click" />
+            <Button Content="Vendor Payments"  Name="vendorPaymentsBtn" IsEnabled="True" Margin="10" Click="vendorPaymentsBtn_Click" />
+            <!--Button Content="Due Balance Report"  Name="dueBalanceReportBtn" Margin="10" IsEnabled="False" />
+        <Button Content="Loss Profit Report"  Name="LossProfitReportBtn" Margin="10" IsEnabled="False" /-->
+            <Button Content="Customers"  Name="customerReportBtn" Margin="10" IsEnabled="True" Click="customerReportBtn_Click" />
+            <Button Content="Vendors"  Name="vendorBtn" Margin="10" IsEnabled="True" Click="vendorBtn_Click" />
+            <Button Content="Stock"  Name="stockBtn" Margin="10" IsEnabled="True" Click="stockBtn_Click" />
+            <Button Content="Settings"  Name="settingsBtn" Margin="10" IsEnabled="True" Click="settingsBtn_Click" />
+            <Button Content="Calculator"  Name="calculatorBtn" Margin="10" Click="calculatorBtn_Click" />
+            <Button Content="To Do"  Name="todoBtn" Margin="10" Click="todoBtn_Click" />
+
+        </UniformGrid>
+    </DockPanel>
+</Window>

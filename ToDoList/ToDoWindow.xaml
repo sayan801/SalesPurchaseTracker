@@ -1,0 +1,29 @@
+﻿<Window x:Class="ToDoList.ToDoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:util= "clr-namespace:SPTDataModel.Util;assembly=SPTDataModel"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="To Do" Height="410" Width="763" Loaded="Window_Loaded">
+    <DockPanel LastChildFill="True">
+        <DockPanel DockPanel.Dock="Top"  LastChildFill="True">
+            <Button  Margin="10 0" Name="showToDoItemsBtn" Click="showToDoItemsBtn_Click" DockPanel.Dock="Left">Show To Do Items</Button>
+            <UniformGrid DockPanel.Dock="Right" Columns="3" Height="30">
+                <Button Margin="10 0" Width="100" Name="todoAddBtn"  Content="Add To Do" Click="todoAddBtn_Click"></Button>
+                <Button Margin="10 0"  Name="delAddBtn" Content="Delete" Click="delAddBtn_Click"></Button>
+                <Button Margin="10 0"  Name="printAddBtn" Content="Print" Click="printAddBtn_Click"></Button>
+            </UniformGrid>
+            <TextBox Name="todoInputTb" DockPanel.Dock="Left"></TextBox>
+            
+        </DockPanel>
+        <ListView Name="todoListView" DockPanel.Dock="Bottom"  ItemsSource="{Binding toDoCollection}"
+                      IsSynchronizedWithCurrentItem="True" util:GridViewSort.AutoSort="True" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="140" Header="Id"  DisplayMemberBinding="{Binding id}"  util:GridViewSort.PropertyName="id" />
+                    <GridViewColumn Width="140" Header="Date"  DisplayMemberBinding="{Binding date_time}"  util:GridViewSort.PropertyName="date_time"  />
+                    <GridViewColumn Width="340" Header="To Do"  DisplayMemberBinding="{Binding to_do}"  util:GridViewSort.PropertyName="to_do"  />                    
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>

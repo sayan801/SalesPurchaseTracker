@@ -1,0 +1,28 @@
+﻿<Window x:Class="SPTSettings.SPTSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Settings" Height="350" Width="525" Loaded="Window_Loaded">
+    <DockPanel LastChildFill="True">
+        <UniformGrid Rows="1" DockPanel.Dock="Bottom" Height="40">
+            <Button Name="cancelBtn" Click="cancelBtn_Click" Margin="5 0">Close</Button>
+            <Button Name="loadBtn" Click="loadBtn_Click" Margin="5 0">Load Existing Settings</Button>
+            <Button Name="saveBtn" Click="saveBtn_Click" Margin="5 0">Save New Settings</Button>
+        </UniformGrid>
+        <UniformGrid Columns="1" DockPanel.Dock="Left">
+            <Label>Name</Label>
+            <Label>Address</Label>
+            <Label>Phone No</Label>
+            <Label>Bill Disclaimer</Label>
+            <Label>Invoice Prefix</Label>
+            <Label></Label>
+        </UniformGrid>  
+        <UniformGrid Columns="1" DockPanel.Dock="Right">
+            <TextBox Name="nameTextbox" Width="400"></TextBox>
+            <TextBox Name="addressTextbox" Width="400"></TextBox>
+            <TextBox PreviewTextInput="phoneTextbox_PreviewTextInput" Name="phoneTextbox" Width="400"></TextBox>
+            <TextBox Name="billDisclaimerTextbox" Width="400"></TextBox>
+            <TextBox Name="invoicePrefixTextbox" Width="400"></TextBox>
+            <Button Name="passwordChangeButton" Width="400" Margin="0 5" Click="passwordChangeButton_Click">Change Password</Button>            
+        </UniformGrid>
+    </DockPanel>
+</Window>

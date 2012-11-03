@@ -1,0 +1,47 @@
+﻿<Window x:Class="InputVatCalculation.InputVatCalcWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:util= "clr-namespace:SPTDataModel.Util;assembly=SPTDataModel"
+         DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="Input VAT Calculation" Height="509" Width="1131">
+    <DockPanel LastChildFill="True">
+        <UniformGrid DockPanel.Dock="Top" Rows="1" Height="30">
+            <Label HorizontalAlignment="Center">From Date</Label>
+            <DatePicker Height="25" Name="startDatePicker" KeyboardNavigation.IsTabStop="False"  Background="#FFA39797" SelectedDate="{x:Static sys:DateTime.Now}" />
+            <Label HorizontalAlignment="Center">To Date</Label>
+            <DatePicker Height="25" Name="endDatePicker" KeyboardNavigation.IsTabStop="False"  Background="#FFA39797" SelectedDate="{x:Static sys:DateTime.Now}" />
+            <Button Name="IpVatShowBtn" Click="IpVatShowBtn_Click" Margin="10 0">Show Item</Button>
+            <Button Content="Print" Margin="10 0" Name="printBtn" IsEnabled="True" Click="printBtn_Click"></Button>
+        </UniformGrid>
+        <UniformGrid Rows="3" DockPanel.Dock="Bottom" Height="120">
+            <Button Content="Total VAT" Name="calculateTotalVATBtn" Click="calculateTotalVATBtn_Click" HorizontalContentAlignment="Right" FontWeight="Bold"></Button>           
+            <Label Name="vatTotalAmount" HorizontalContentAlignment="Center"></Label>
+            <Button Content="Total Amount" Name="calculateTotalAmountBtn" Click="calculateTotalAmountBtn_Click" HorizontalContentAlignment="Right" FontWeight="Bold"></Button>
+            <Label Name="priceTotalAmount" HorizontalContentAlignment="Center"></Label>
+            <Button Margin="30 5" Name="closeBtn" Click="closeBtn_Click">Close</Button>
+            <Button Margin="30 5"  Name="saveXlsBtn" Click="saveXlsBtn_Click">Save to Excel</Button>
+        </UniformGrid>
+        <ListView Name="InputvatListView" ItemsSource="{Binding inputVatCollection}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Right" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="90" Header="Date" DisplayMemberBinding="{Binding date}"/>
+                    <GridViewColumn Width="120" Header="Cash Memo No." DisplayMemberBinding="{Binding invoiceNo}"/>
+                    <GridViewColumn Width="160" Header="Vendor Name" DisplayMemberBinding="{Binding vendorName}"/>
+                    <GridViewColumn Width="150"  Header="Vendor VAT No." DisplayMemberBinding="{Binding vendorVatNo}"/>
+                    <GridViewColumn  Width="90" Header="Quantity" DisplayMemberBinding="{Binding quantity}"/>
+                    <GridViewColumn Width="70"  Header="Price/unit" DisplayMemberBinding="{Binding pricePerUnit}"/>
+                    <GridViewColumn  Width="100" Header="Vat Rate" DisplayMemberBinding="{Binding vatRate}"/>
+                    <GridViewColumn Width="100"  Header="Total Price" DisplayMemberBinding="{Binding totalPrice}"/>
+                    <GridViewColumn  Width="100" Header="Vat Amount" DisplayMemberBinding="{Binding vatTotal}"/>
+                    <GridViewColumn Width="120"  Header="Total Amount" DisplayMemberBinding="{Binding totalAmount}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>

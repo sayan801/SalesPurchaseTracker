@@ -1,0 +1,38 @@
+﻿<Window x:Class="StockManager.StockManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
+        xmlns:util= "clr-namespace:SPTDataModel.Util;assembly=SPTDataModel"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="Stock Manager" Height="827" Width="1101" Loaded="Window_Loaded">
+    <DockPanel LastChildFill="True">
+        <UniformGrid Height="30"  DockPanel.Dock="Top" Rows="1">
+            <Button Content="Add Item" Name="addItemBtn" Click="addItemBtn_Click"  Margin="10 0"></Button>
+            <Button Content="Delete Item" Margin="10 0" Name="deleteItemBtn" Click="deleteItemBtn_Click"></Button>
+            <Button Content="Edit Item" Margin="10 0" IsEnabled="True" Name="editItemBtn" Click="editItemBtn_Click"></Button>
+            <Button Content="Print" Margin="10 0" Name="printBtn" Click="printBtn_Click"></Button>
+        </UniformGrid>
+
+        <ListView Name="stockItemListView" DockPanel.Dock="Bottom"  ItemsSource="{Binding stockCollection}"
+                   IsSynchronizedWithCurrentItem="True" util:GridViewSort.AutoSort="True" SelectionChanged="stockItemListView_SelectionChanged">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Right" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <!-- GridViewColumn Width="50" Header="Sl No"   DisplayMemberBinding="{Binding serialNo}"  / -->
+                    <GridViewColumn Width="100" Header="Product Id"   DisplayMemberBinding="{Binding productId}" util:GridViewSort.PropertyName="productId" />
+                    <GridViewColumn Width="100" Header="Product Name"   DisplayMemberBinding="{Binding productName}" util:GridViewSort.PropertyName="productName" />
+                    <GridViewColumn Width="100" Header="Vendor"   DisplayMemberBinding="{Binding vendorId}"    util:GridViewSort.PropertyName="vendorId"/>
+                    <GridViewColumn Width="150" Header="Purchase Date"   DisplayMemberBinding="{Binding purchaseDate}"  util:GridViewSort.PropertyName="purchaseDate" />
+                    <GridViewColumn Width="120" Header="Quantity Purchased"   DisplayMemberBinding="{Binding quantityPurchased}"    util:GridViewSort.PropertyName="quantityPurchased" />
+                    <GridViewColumn Width="100" Header="Rate"   DisplayMemberBinding="{Binding rate}"    util:GridViewSort.PropertyName="rate" />
+                    <GridViewColumn Width="100" Header="VAT Rate"   DisplayMemberBinding="{Binding vatRate}"    util:GridViewSort.PropertyName="vatRate" />
+                    <GridViewColumn Width="200" Header="Quantity Available"   DisplayMemberBinding="{Binding quantityAvailable}"    util:GridViewSort.PropertyName="quantityAvailable" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </DockPanel>
+</Window>
