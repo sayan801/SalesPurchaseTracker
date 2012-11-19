@@ -380,7 +380,7 @@ namespace PurchaseBilling
 
             CustomersData customersData = new CustomersData();
 
-            msqlCommand.CommandText = "SELECT vendor_name,vendor_id FROM vendors";
+            msqlCommand.CommandText = "SELECT vendor_name,vendor_id FROM vendors group by vendor_name";
 
             MySql.Data.MySqlClient.MySqlDataReader msqlReader = msqlCommand.ExecuteReader();
 

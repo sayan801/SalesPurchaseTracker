@@ -453,7 +453,7 @@ namespace SalesBillGeneration
             if (msqlConnection.State != System.Data.ConnectionState.Open)
                 msqlConnection.Open();
 
-            msqlCommand.CommandText = "SELECT customer_name,id FROM customers";
+            msqlCommand.CommandText = "SELECT customer_name,id FROM customers group by customer_name";
 
             MySql.Data.MySqlClient.MySqlDataReader msqlReader = msqlCommand.ExecuteReader();
 

@@ -86,7 +86,7 @@ namespace PurchaseBilling
             if (msqlConnection.State != System.Data.ConnectionState.Open)
                 msqlConnection.Open();
 
-            msqlCommand.CommandText = "SELECT product_name,id,rate,quantity_available,vat_rate FROM stock";
+            msqlCommand.CommandText = "SELECT product_name,id,rate,quantity_available,vat_rate FROM stock group by product_name";
             MySql.Data.MySqlClient.MySqlDataReader msqlReader = msqlCommand.ExecuteReader();
 
             _purchaseProductCollection.Clear();

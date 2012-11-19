@@ -15,13 +15,13 @@
             <Button Name="rateInputBtn" KeyboardNavigation.IsTabStop="False" >Rate</Button>
             <ComboBox IsEnabled="False" Name="descriptionDataTB" KeyboardNavigation.TabIndex="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ItemsSource="{Binding purchaseProductCollection}"
                       DisplayMemberPath="productName"  SelectedValuePath="productId" SelectionChanged="descriptionDataTB_SelectionChanged" ></ComboBox>
-            <TextBox Name="quantitydataTB" KeyboardNavigation.TabIndex="2" PreviewTextInput="quantitydataTB_PreviewTextInput" ></TextBox>
+            <TextBox Name="quantitydataTB" KeyboardNavigation.TabIndex="2" PreviewTextInput="quantitydataTB_PreviewTextInput" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ></TextBox>
             <ComboBox Name="vatDataCB" KeyboardNavigation.TabIndex="3" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <ComboBoxItem Content="0" />
                 <ComboBoxItem Content="4" />
                 <ComboBoxItem Content="13.5" />
             </ComboBox>
-            <TextBox Name="rateDataTB" KeyboardNavigation.TabIndex="4" PreviewTextInput="rateDataTB_PreviewTextInput" ></TextBox>
+            <TextBox Name="rateDataTB" KeyboardNavigation.TabIndex="4" PreviewTextInput="rateDataTB_PreviewTextInput" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ></TextBox>
         </UniformGrid>
     </DockPanel>
 </Window>
